@@ -37,7 +37,8 @@ class AppTheme {
     ),
     appBarTheme: const AppBarTheme(
       backgroundColor:
-          Color.fromARGB(255, 180, 238, 243), // El color que definiste en la línea 15
+          Color.fromARGB(255, 180, 238, 243), 
+          // El color que definiste en la línea 15
       elevation: 0,
       scrolledUnderElevation: 0, // Mantiene el color fijo al hacer scroll
       centerTitle: true,
