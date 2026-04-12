@@ -4,9 +4,6 @@ import 'package:material_symbols_icons/symbols.dart';
 import 'package:rent_app/config/theme/app_theme.dart';
 
 class HomeView extends StatelessWidget {
-  
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,20 +19,16 @@ class _HomeFloatingAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
-      onPressed: ()=>context.go('/booking'),
+      onPressed: () => context.push('/booking'),
       shape: CircleBorder(),
       child: const Icon(Symbols.calendar_add_on, size: 36),
     );
   }
 }
 
-
 class _HomeAppbar extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-
-  
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       notchMargin: 8.0,
@@ -51,9 +44,9 @@ class _HomeAppbar extends StatelessWidget {
               onPressed: () => context.go('/home'),
             ),
             IconButton(
-              icon: const Icon(Icons.find_in_page, size: 36),
+              icon: const Icon(Symbols.finance_mode, size: 36),
               tooltip: 'Finanzas',
-              onPressed: () => context.go('/finances'),
+              onPressed: () => context.push('/finances'),
             ),
 
             const SizedBox(width: 48),
@@ -61,7 +54,7 @@ class _HomeAppbar extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.settings, size: 36),
               tooltip: 'Configuraciones',
-              onPressed: () =>context.go('/settings'),
+              onPressed: () => context.push('/settings'),
             ),
 
             IconButton(
