@@ -1,34 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:rent_app/config/theme/app_theme.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+  
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Home View')),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        shape: CircleBorder(),
-        child: const Icon(Symbols.calendar_add_on,size: 36),
-      ),
+      floatingActionButton: _HomeFloatingAction(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-
-      bottomNavigationBar: homeAppbar(),
+      bottomNavigationBar: _HomeAppbar(),
     );
   }
 }
 
-// ignore: camel_case_types
-class homeAppbar extends StatelessWidget {
-  const homeAppbar({
-    super.key,
-  });
+class _HomeFloatingAction extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: ()=>context.go('/booking'),
+      shape: CircleBorder(),
+      child: const Icon(Symbols.calendar_add_on, size: 36),
+    );
+  }
+}
+
+
+class _HomeAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+  
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       notchMargin: 8.0,
@@ -39,28 +46,26 @@ class homeAppbar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             IconButton(
-              icon: const Icon(Icons.home,size: 36,),
+              icon: const Icon(Icons.home, size: 36),
               tooltip: 'Inicio',
-              onPressed: () {},
+              onPressed: () => context.go('/home'),
             ),
             IconButton(
-              icon: const Icon(Icons.find_in_page,size: 36,),
+              icon: const Icon(Icons.find_in_page, size: 36),
               tooltip: 'Finanzas',
-              onPressed: () {},
+              onPressed: () => context.go('/finances'),
             ),
-    
-    
-            const SizedBox(width: 48), 
-    
-           
+
+            const SizedBox(width: 48),
+
             IconButton(
-              icon: const Icon(Icons.settings,size: 36),
+              icon: const Icon(Icons.settings, size: 36),
               tooltip: 'Configuraciones',
-              onPressed: () {},
+              onPressed: () =>context.go('/settings'),
             ),
-       
+
             IconButton(
-              icon: const Icon(Icons.person,size: 36),
+              icon: const Icon(Icons.person, size: 36),
               tooltip: 'Perfil',
               onPressed: () {},
             ),
