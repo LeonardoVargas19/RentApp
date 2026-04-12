@@ -1,53 +1,54 @@
 import 'package:flutter/material.dart';
-
 class AppTheme {
-  static const Color primaryColor = Color(0xFF46BCC3);
-  static const Color textSecondary = Color(0xFF7C8788);
-  static const Color grayMedium = Color(0xFFB1BCBD);
-  static const Color grayLight = Color(0xFFBCCCCD);
-  static const Color backgroundLight = Color(0xFFF5F9F9);
-  static const Color surfaceLight = Color(0xFFF1F5F5);
-  static const Color black = Color(0xFF000000);
-  static const Color white = Color(0xFFFFFFFF);
-  static const Color success = Color(0xFF138F4D);
-  static const Color error = Color(0xFFF21A1A);
-  // En app_theme.dart
-  static const Color surfaceTintLight = Color(
-    0xFFEAF5F6,
-  ); // Blanco con un toque sutil de azul
+  // Definimos tus constantes basadas en las fotos
+  static const Color colorAppBar  = Color.fromARGB(255, 240, 229, 249); 
+  static const Color colorButtons = Color(0xFFEAD4FF); 
+  static const Color colorBody    = Color.fromARGB(255, 249, 242, 250); 
+  static const Color colorCards   = Color(0xFFF6EFFA); 
+  static const Color textPrimary   = Color(0xFF1C1B1F);
+  static const Color textSecondary = Color(0xFF49454F);
 
   ThemeData getTheme() => ThemeData(
     useMaterial3: true,
-    colorScheme: const ColorScheme(
-      brightness: Brightness.light,
-      primary: primaryColor,
-      onPrimary: white,
-      secondary: primaryColor,
-      onSecondary: white,
-      error: error,
-      onError: white,
-      surface:
-          white, // Fondo de las tarjetas (Cards) en tu pantalla de favoritos
-      onSurface: black, // Color del texto principal
+    
+    // El color de fondo de toda la app (Body)
+    scaffoldBackgroundColor: const Color.fromARGB(255, 250, 243, 251),
+
+    colorScheme: const ColorScheme.light(
+      primary: colorButtons,    // El morado de tus botones
+      onPrimary: textPrimary,   // Texto sobre botones
+      surface: colorCards,      // Color por defecto para superficies
+      onSurface: textPrimary,
+   
+      
     ),
-    textTheme: const TextTheme(
-      titleLarge: TextStyle(color: black, fontWeight: FontWeight.bold),
-      bodyLarge: TextStyle(color: black),
-      bodyMedium: TextStyle(color: textSecondary), // Textos descriptivos grises
-    ),
+
     appBarTheme: const AppBarTheme(
-      backgroundColor:
-          Color.fromARGB(255, 180, 238, 243), 
-          // El color que definiste en la línea 15
+    // El color de tu primera imagen
       elevation: 0,
-      scrolledUnderElevation: 0, // Mantiene el color fijo al hacer scroll
+      scrolledUnderElevation: 0,
       centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: textPrimary,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      ),
+      // Mantenemos la línea delgada pero con un tono que combine
       shape: Border(
-        bottom: BorderSide(
-          color: grayLight, // La línea delgada usando tu color de la línea 7
-          width: 1,
-        ),
+        bottom: BorderSide(color: Color(0xFFE0D8E5), width: 0.5),
       ),
     ),
+
+    // Estilo global para los botones
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        backgroundColor: colorButtons,
+        foregroundColor: textPrimary,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      ),
+    ),
+
+    // Estilo para las Cards
+ 
   );
 }

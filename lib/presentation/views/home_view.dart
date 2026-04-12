@@ -2,18 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:rent_app/config/theme/app_theme.dart';
+import 'package:rent_app/presentation/views/views.dart';
+
 
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home View')),
       floatingActionButton: _HomeFloatingAction(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: _HomeAppbar(),
+      body: BodyWidget(),
     );
   }
 }
+
 
 class _HomeFloatingAction extends StatelessWidget {
   @override
@@ -32,7 +35,7 @@ class _HomeAppbar extends StatelessWidget {
     return BottomAppBar(
       shape: CircularNotchedRectangle(),
       notchMargin: 8.0,
-      color: AppTheme.surfaceTintLight,
+      color: AppTheme.colorAppBar,
       child: SizedBox(
         height: 60,
         child: Row(
