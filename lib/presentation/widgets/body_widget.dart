@@ -11,7 +11,7 @@ class BodyWidget extends StatelessWidget {
       appBar: _AppbarSearch(),
       body: ListView(
         padding: EdgeInsets.only(right: 30.0, left: 30.0),
-        children: [Card.outlined(child: CardViewHome())],
+        children: [Card(child: CardViewHome())],
       ),
     );
   }

@@ -51,7 +51,6 @@ class RentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      // Mantenemos tu color ámbar
       child: SizedBox(
         width: width,
         height: height,
