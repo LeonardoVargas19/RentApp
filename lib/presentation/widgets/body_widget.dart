@@ -86,7 +86,7 @@ class _AppbarSearch extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
           onChanged: (value) {
-            print('Buscando: $value');
+            
           },
         ),
       ),
