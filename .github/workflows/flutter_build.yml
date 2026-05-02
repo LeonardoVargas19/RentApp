@@ -1,0 +1,23 @@
+name: PR Quality Check
+
+on:
+    pull_request:
+        branches: [ main, dev ]
+
+jobs:
+    test_and_lint:
+        runs-on: Ubuntu-lastest
+
+        steps:
+
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Install Flutter
+              uses: subosito/flutter-acctions@2
+              with:
+                  channel: "stable"
+            - name: Get Dependecie
+              run: flutter pub get
+            - name: Static Analysis
+              run: flutter analyze

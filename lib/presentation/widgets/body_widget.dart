@@ -16,7 +16,7 @@ class BodyWidget extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              itemCount: 10, // Número de elementos de prueba
+              itemCount: 10, 
               itemBuilder: (context, index) {
                 return _TransactionItem(
                   nombre: "Huésped $index",
