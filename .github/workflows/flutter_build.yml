@@ -1,23 +1,36 @@
 name: PR Quality Check
 
+# Aquí definimos el "Disparador" (Trigger)
 on:
-    pull_request:
-        branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ] # Se activa cuando apuntas un PR a estas ramas
 
 jobs:
-    test_and_lint:
-        runs-on: Ubuntu-lastest
+  test_and_lint:
+    runs-on: ubuntu-latest # Usamos Linux porque es más rápido y barato para CI
 
-        steps:
+    steps:
+      # Paso 1: Traer tu código al servidor de GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Checkout code
-              uses: actions/checkout@v4
+      # Paso 2: Buscar e implementar la Action de Flutter del Marketplace
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          # Aquí podrías poner flutter-version: '3.19.0' si quisieras una específica
 
-            - name: Install Flutter
-              uses: subosito/flutter-acctions@2
-              with:
-                  channel: "stable"
-            - name: Get Dependecie
-              run: flutter pub get
-            - name: Static Analysis
-              run: flutter analyze
+      # Paso 3: Instalar dependencias (el equivalente al mvn install de Java)
+      - name: Get dependencies
+        run: flutter pub get
+
+      # Paso 4: El "Linter" (Análisis estático)
+      # Esto fallará el PR si tienes errores de formato o reglas de código rotas
+      - name: Static Analysis
+        run: flutter analyze
+
+    #   # Paso 5: Pruebas unitarias
+    #   # Si un test falla, el PR mostrará una X roja y sabrás que no debes buildear
+    #   - name: Run unit tests
+    #     run: flutter test
