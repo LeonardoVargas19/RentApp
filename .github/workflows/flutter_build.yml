@@ -34,3 +34,12 @@ jobs:
     #   # Si un test falla, el PR mostrará una X roja y sabrás que no debes buildear
     #   - name: Run unit tests
     #     run: flutter test
+      - name: Build APK
+        run: flutter build apk --realease 
+      - name: Upload APK
+        uses: actions/upload-artefactory@4
+        with:
+          name: realease apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+        
+
