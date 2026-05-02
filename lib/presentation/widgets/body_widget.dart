@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rent_app/config/theme/app_theme.dart';
-import 'package:rent_app/presentation/widgets/quick_access_grid_widget.dart';
 import 'package:rent_app/presentation/widgets/widgets.dart';
 
 class BodyWidget extends StatelessWidget {
