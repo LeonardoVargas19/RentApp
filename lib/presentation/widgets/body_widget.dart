@@ -16,7 +16,7 @@ class BodyWidget extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(horizontal: 30),
-              itemCount: 10, // Número de elementos de prueba
+              itemCount: 10, 
               itemBuilder: (context, index) {
                 return _TransactionItem(
                   nombre: "Huésped $index",
@@ -86,14 +86,13 @@ class _AppbarSearch extends StatelessWidget implements PreferredSizeWidget {
             ),
           ],
           onChanged: (value) {
-            print('Buscando: $value');
+            
           },
         ),
       ),
     );
   }
 
-  @override
   // Definimos el tamaño estándar de un AppBar
   Size get size => const Size.fromHeight(kToolbarHeight);
 
