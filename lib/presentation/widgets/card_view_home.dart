@@ -1,19 +1,27 @@
 import 'package:flutter/material.dart';
 
-class CardViewHome extends StatelessWidget {
-  const CardViewHome({super.key});
+class CardWidgetHome extends StatelessWidget {
+  final Widget child;
+  final double? width;
+  final double? height;
+
+  const CardWidgetHome({
+    super.key,
+    required this.child,
+    this.width,
+    this.height,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      height: 150,
-      child: Column(
-        children: [
-            
-        ],
+    return Card(
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: child,
       ),
     );
   }
 }
+
 
