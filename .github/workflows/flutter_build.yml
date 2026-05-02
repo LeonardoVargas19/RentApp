@@ -18,10 +18,11 @@ jobs:
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: 'stable'
+          channel: "stable"
+          cache: true
           # Aquí podrías poner flutter-version: '3.19.0' si quisieras una específica
 
-      # Paso 3: Instalar dependencias (el equivalente al mvn install de Java)
+          # Paso 3: Instalar dependencias (el equivalente al mvn install de Java)
       - name: Get dependencies
         run: flutter pub get
 
@@ -29,7 +30,6 @@ jobs:
       # Esto fallará el PR si tienes errores de formato o reglas de código rotas
       - name: Static Analysis
         run: flutter analyze
-
     #   # Paso 5: Pruebas unitarias
     #   # Si un test falla, el PR mostrará una X roja y sabrás que no debes buildear
     #   - name: Run unit tests
